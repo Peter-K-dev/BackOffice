@@ -15,13 +15,13 @@
 
 ## Run Locally
 
-# Clone the project
+### Clone the project
 
 ```
   git clone https://github.com/peter-k-dev/backoffice
 ```
 
-# Run API
+### Run API
 ```
   cd backoffice/src/
 ```
@@ -30,7 +30,7 @@
   dotnet run --launch-profile https
 ```
 
-# Swagger UI
+### Swagger UI
 ```
 https://localhost:7131/swagger
 ```
