@@ -1,0 +1,62 @@
+@BackOffice_HostAddress = https://localhost:7131
+
+GET {{BackOffice_HostAddress}}/api/domainrules/1
+Accept: application/json
+
+###
+
+GET {{BackOffice_HostAddress}}/api/domainrules
+Accept: application/json
+
+###
+
+POST {{BackOffice_HostAddress}}/api/domainrules
+Content-Type: application/json
+
+{
+  "name": "creditLimits",
+  "data": {"minCredit" : 1500}
+}
+
+###
+
+PUT {{BackOffice_HostAddress}}/api/domainrules
+Content-Type: application/json
+
+{
+  "id": 1,
+  "data": {"minCredit" : 1400, "maxCredit": 1600},
+  "rowVersion" : "AAAAAAAAAAE="
+}
+###
+
+DELETE {{BackOffice_HostAddress}}/api/domainrules/1
+Accept: application/json
+
+
+###
+
+GET {{BackOffice_HostAddress}}/health
+
+
+###
+
+GET {{BackOffice_HostAddress}}/api/changelogs
+Accept: application/json
+
+###
+
+GET {{BackOffice_HostAddress}}/api/changelogs?orderby=type
+Accept: application/json
+
+###
+
+GET {{BackOffice_HostAddress}}/api/changelogs/notifications
+Accept: application/json
+
+###
+
+GET {{BackOffice_HostAddress}}/metrics
+
+
+###
