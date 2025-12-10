@@ -1,17 +1,17 @@
-# Config Change Tracker – REST API
+# Config Change Tracker â€“ REST API
 
 ## Rationale
 
-Store change Log every config change in domain config
-Notifing external service of critical changes with retry in case of external service failure
-Handle invalid config state transitions
-Build in metrics and health check
+ - Store change Log every config change in domain config
+ - Notifing external service of critical changes with retry in case of external service failure
+ - Handle invalid config state transitions
+ - Build in metrics and health check
 
 ## Assumptions
 
-The API is deployed inside a trusted enterprise network (no auth)
-Each rule is uniquely identified by a business key (Name)
-Critical thresholds are defined in CriticalChangeDetector (minCredit less than 1000)
+ - The API is deployed inside a trusted enterprise network (no auth)
+ - Each rule is uniquely identified by a business key (Name)
+ - Critical thresholds are defined in CriticalChangeDetector (minCredit less than 1000)
 
 ## Run Locally
 
@@ -19,6 +19,15 @@ Critical thresholds are defined in CriticalChangeDetector (minCredit less than 1
 
 ```
   git clone https://github.com/peter-k-dev/backoffice
+```
+
+# Run API
+```
+  cd backoffice/src/
+```
+
+```
+  dotnet run --launch-profile https
 ```
 
 # Swagger UI
