@@ -97,43 +97,8 @@ public class DomainRuleService : IDomainRuleService
 			throw new DomainRuleModifiedException();
 		}
 
-		try
-		{
-			var newJson = JsonNode.Parse(domainRule.Data)?.AsObject();
-
-			
-
-			var oldJson = JsonNode.Parse(currentRule.Data)?.AsObject();
-
-			if (newJson is null ||
-			    oldJson is null ||
-				newJson.Count == 0)
-			{
-				throw new DomainRuleJsonDataEmptyException();
-			}
-
-			foreach (var property in newJson)
-			{
-
-				if(oldJson.ContainsKey(property.Key))
-				{
-					oldJson[property.Key] = property.Value.DeepClone();
-				}
-				else
-				{
-					oldJson.TryAdd(property.Key, property.Value.DeepClone());
-				}
-			}
-
-			currentRule.Data = oldJson.ToJsonString();
-		}
-		catch
-		{
-			throw new DomainRuleInvalidJsonException();
-		}
-
 		var oldData = currentRule.Data;
-		
+		currentRule.Data = domainRule.Data;
 		currentRule.Updated = DateTime.UtcNow;
 		currentRule.RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks); ;
 
